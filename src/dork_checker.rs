@@ -1,37 +1,36 @@
 use colored::Colorize;
 use indicatif::{ProgressBar, ProgressStyle};
 use anyhow::Result;
-use crate::{Database, Config};
+use crate::{Database, Config, advanced_dorks};
 use std::fs;
 use rand::Rng;
-
-const DORK_TEMPLATES: &[&str] = &[
-    "site:{} inurl:admin",
-    "site:{} inurl:login",
-    "site:{} inurl:wp-content",
-    "site:{} filetype:sql",
-    "site:{} filetype:php inurl:admin",
-    "site:{} intext:\"index of\"",
-    "site:{} inurl:config.php",
-    "site:{} inurl:database",
-    "site:{} intitle:\"index of\" password",
-    "site:{} ext:sql intext:password",
-    "site:{} inurl:admin/login.php",
-    "site:{} inurl:backup filetype:sql",
-    "site:{} \"Index of /admin\"",
-    "site:{} \"Index of /password\"",
-    "site:{} \"Index of /mail\"",
-    "site:{} inurl:shell",
-    "site:{} inurl:backdoor",
-    "site:{} inurl:install.php",
-    "site:{} inurl:setup.php",
-    "site:{} inurl:phpinfo.php",
-];
+use dialoguer::{theme::ColorfulTheme, Select};
 
 pub async fn check_single(target: &str, db: &Database, config: &Config) -> Result<()> {
-    println!("\n{}", format!("🎯 Checking dorks for: {}", target).bright_cyan().bold());
+    println!("\n{}", format!("🎯 LEGEND DORKER - Advanced Dork Checking: {}", target).bright_cyan().bold());
     
-    let pb = ProgressBar::new(DORK_TEMPLATES.len() as u64);
+    // Let user choose category
+    let categories = advanced_dorks::get_categories();
+    let mut category_names: Vec<String> = categories.iter()
+        .map(|(_, name)| format!("📁 {}", name))
+        .collect();
+    category_names.push("🎯 All Categories (100+ Dorks)".to_string());
+    
+    let selection = Select::with_theme(&ColorfulTheme::default())
+        .with_prompt("Select dork category")
+        .items(&category_names)
+        .default(0)
+        .interact()?;
+    
+    let dork_templates = if selection == categories.len() {
+        advanced_dorks::get_all_dorks()
+    } else {
+        advanced_dorks::get_dorks_by_category(categories[selection].0)
+    };
+    
+    println!("\n{}", format!("🔥 Using {} advanced dork patterns", dork_templates.len()).bright_yellow().bold());
+    
+    let pb = ProgressBar::new(dork_templates.len() as u64);
     pb.set_style(
         ProgressStyle::default_bar()
             .template("[{elapsed_precise}] {bar:40.cyan/blue} {pos}/{len} {msg}")
@@ -44,7 +43,7 @@ pub async fn check_single(target: &str, db: &Database, config: &Config) -> Resul
         .user_agent(&config.user_agent)
         .build()?;
     
-    for dork_template in DORK_TEMPLATES {
+    for dork_template in dork_templates {
         let dork = dork_template.replace("{}", target);
         pb.set_message(format!("Checking: {}", &dork[..40.min(dork.len())]));
         

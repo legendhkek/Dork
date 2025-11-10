@@ -7,8 +7,9 @@ set -e
 
 echo "╔═══════════════════════════════════════════════════════════════╗"
 echo "║                                                               ║"
-echo "║         Swiss Army Suite - Build Script                      ║"
-echo "║                  Version 2.0.0                                ║"
+echo "║         🔥 LEGEND DORKER - Build Script 🔥                    ║"
+echo "║                  Version 3.0.0                                ║"
+echo "║              Made by @LEGEND_BL                               ║"
 echo "║                                                               ║"
 echo "╚═══════════════════════════════════════════════════════════════╝"
 echo ""
@@ -62,13 +63,13 @@ echo ""
 # Copy binary to current directory
 echo -e "${CYAN}[5/5] Creating executable...${NC}"
 
-if [ -f "target/release/swiss-army-suite" ]; then
-    cp target/release/swiss-army-suite ./SwissArmySuite
-    chmod +x SwissArmySuite
-    echo -e "${GREEN}✓ Executable created: SwissArmySuite${NC}"
-elif [ -f "target/release/swiss-army-suite.exe" ]; then
-    cp target/release/swiss-army-suite.exe ./SwissArmySuite.exe
-    echo -e "${GREEN}✓ Executable created: SwissArmySuite.exe${NC}"
+if [ -f "target/release/legend-dorker" ]; then
+    cp target/release/legend-dorker ./LegendDorker
+    chmod +x LegendDorker
+    echo -e "${GREEN}✓ Executable created: LegendDorker${NC}"
+elif [ -f "target/release/legend-dorker.exe" ]; then
+    cp target/release/legend-dorker.exe ./LegendDorker.exe
+    echo -e "${GREEN}✓ Executable created: LegendDorker.exe${NC}"
 else
     echo -e "${RED}❌ Could not find compiled binary${NC}"
     exit 1
@@ -76,8 +77,8 @@ fi
 echo ""
 
 # Get file size
-if [ -f "./SwissArmySuite" ]; then
-    SIZE=$(ls -lh SwissArmySuite | awk '{print $5}')
+if [ -f "./LegendDorker" ]; then
+    SIZE=$(ls -lh LegendDorker | awk '{print $5}')
     echo -e "${GREEN}✓ Binary size: $SIZE${NC}"
 fi
 echo ""
@@ -85,12 +86,16 @@ echo ""
 # Success message
 echo "╔═══════════════════════════════════════════════════════════════╗"
 echo "║                                                               ║"
-echo "║                  🎉 BUILD SUCCESSFUL! 🎉                      ║"
+echo "║           🔥 BUILD SUCCESSFUL! 🔥                             ║"
+echo "║          LEGEND DORKER v3.0 Ready                             ║"
+echo "║          Made by @LEGEND_BL                                   ║"
 echo "║                                                               ║"
 echo "╚═══════════════════════════════════════════════════════════════╝"
 echo ""
 echo -e "${GREEN}To run the application:${NC}"
-echo -e "  ${CYAN}./SwissArmySuite${NC}"
+echo -e "  ${CYAN}./LegendDorker${NC}"
 echo ""
-echo -e "${YELLOW}⚠  Remember: Use responsibly and legally!${NC}"
+echo -e "${YELLOW}⚠  For Educational and Authorized Testing Only!${NC}"
+echo -e "${GREEN}📧 Contact: sarthakgrid1@gmail.com${NC}"
+echo -e "${GREEN}📱 Instagram: @sar_thak106${NC}"
 echo ""

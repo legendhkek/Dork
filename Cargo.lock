@@ -1068,6 +1068,41 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "bbd2bcb4c963f2ddae06a2efc7e9f3591312473c50c6685e1f298068316e66fe"
 
 [[package]]
+name = "legend-dorker"
+version = "3.0.0"
+dependencies = [
+ "anyhow",
+ "async-trait",
+ "base64",
+ "chrono",
+ "clap",
+ "colored",
+ "console",
+ "crossterm",
+ "dialoguer",
+ "futures",
+ "hex",
+ "indicatif",
+ "md5",
+ "parking_lot",
+ "rand",
+ "rayon",
+ "regex",
+ "reqwest",
+ "rusqlite",
+ "scraper",
+ "serde",
+ "serde_json",
+ "serde_urlencoded",
+ "sha2",
+ "thiserror",
+ "tokio",
+ "trust-dns-resolver",
+ "url",
+ "urlencoding",
+]
+
+[[package]]
 name = "libc"
 version = "0.2.177"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1898,41 +1933,6 @@ name = "strsim"
 version = "0.11.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "7da8b5736845d9f2fcb837ea5d9e2628564b3b043a70948a3f0b778838c5fb4f"
-
-[[package]]
-name = "swiss-army-suite"
-version = "2.0.0"
-dependencies = [
- "anyhow",
- "async-trait",
- "base64",
- "chrono",
- "clap",
- "colored",
- "console",
- "crossterm",
- "dialoguer",
- "futures",
- "hex",
- "indicatif",
- "md5",
- "parking_lot",
- "rand",
- "rayon",
- "regex",
- "reqwest",
- "rusqlite",
- "scraper",
- "serde",
- "serde_json",
- "serde_urlencoded",
- "sha2",
- "thiserror",
- "tokio",
- "trust-dns-resolver",
- "url",
- "urlencoding",
-]
 
 [[package]]
 name = "syn"
