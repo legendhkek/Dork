@@ -12,9 +12,11 @@ mod crypto_tools;
 mod dns_tools;
 mod config;
 mod advanced_dorks;
+mod ui_effects;
 
 use database::Database;
 use config::Config;
+use ui_effects::*;
 
 const VERSION: &str = "3.0.0";
 const AUTHOR: &str = "@LEGEND_BL";
@@ -45,11 +47,18 @@ const BANNER: &str = r#"
 
 #[tokio::main]
 async fn main() -> Result<()> {
-    clear_screen();
+    // Show startup animation
+    show_startup_animation();
     
     // Initialize database and config
-    let db = Database::new("swiss_army.db").await?;
+    println!();
+    loading_animation("Loading database", 500);
+    let db = Database::new("legend_dorker.db").await?;
+    loading_animation("Loading configuration", 400);
     let mut config = Config::load().unwrap_or_default();
+    
+    print_success("LEGEND DORKER initialized successfully!");
+    std::thread::sleep(std::time::Duration::from_millis(800));
     
     loop {
         display_banner();
@@ -96,10 +105,26 @@ async fn main() -> Result<()> {
             13 => stats_menu(&db).await?,
             14 => show_credits(),
             15 => {
-                println!("\n{}", "═".repeat(63).bright_cyan());
-                println!("{}", "  🔥 Thank you for using LEGEND DORKER! 🔥".green().bold());
-                println!("{}", format!("  Made with ❤️  by {}", AUTHOR).bright_yellow());
-                println!("{}", "═".repeat(63).bright_cyan());
+                clear_screen();
+                println!();
+                println!("{}", "╔".to_string() + &"═".repeat(61) + "╗");
+                println!("{}", "║                                                               ║".bright_cyan());
+                println!("{}", "║         🔥 Thank you for using LEGEND DORKER! 🔥              ║".bright_yellow().bold());
+                println!("{}", "║                                                               ║".bright_cyan());
+                println!("{}", "╠".to_string() + &"═".repeat(61) + "╣");
+                println!("{}", format!("║  👨‍💻 Created by: {}                                  ║", AUTHOR).bright_green());
+                println!("{}", format!("║  📧 Email: {}                    ║", EMAIL).bright_green());
+                println!("{}", format!("║  📱 Instagram: @{}                             ║", INSTAGRAM).bright_green());
+                println!("{}", "║                                                               ║".bright_cyan());
+                println!("{}", "║  ⭐ If you found this tool useful:                            ║".bright_white());
+                println!("{}", "║     • Star the repository                                     ║".bright_white());
+                println!("{}", "║     • Follow @sar_thak106 on Instagram                        ║".bright_white());
+                println!("{}", "║     • Share with fellow security researchers                  ║".bright_white());
+                println!("{}", "║                                                               ║".bright_cyan());
+                println!("{}", "║  🛡️  Stay Ethical • Stay Legal • Stay Legendary              ║".bright_cyan().bold());
+                println!("{}", "║                                                               ║".bright_cyan());
+                println!("{}", "╚".to_string() + &"═".repeat(61) + "╝");
+                println!();
                 break;
             }
             _ => {}
@@ -111,17 +136,48 @@ async fn main() -> Result<()> {
 
 fn display_banner() {
     clear_screen();
-    println!("{}", BANNER.bright_cyan().bold());
-    println!("{}", "═".repeat(63).bright_cyan());
-    println!("{}", format!("  🔥 LEGEND DORKER - Ultimate OSINT & Security Framework v{} 🔥", VERSION).bright_yellow().bold());
-    println!("{}", "═".repeat(63).bright_cyan());
-    println!("{}", format!("  👤 Made by: {}              ", AUTHOR).bright_green());
-    println!("{}", format!("  📧 Email: {}       ", EMAIL).bright_green());
-    println!("{}", format!("  📱 Instagram: {}          ", INSTAGRAM).bright_green());
-    println!("{}", "═".repeat(63).bright_cyan());
-    println!("{}", "  ⚡ Advanced Google Dorking | Web Exploitation | OSINT".bright_white());
-    println!("{}", "  ⚠️  For Educational and Authorized Testing Only ⚠️".bright_red().bold());
-    println!("{}\n", "═".repeat(63).bright_cyan());
+    
+    // Animated banner display
+    let banner_lines: Vec<&str> = BANNER.lines().collect();
+    for line in banner_lines {
+        println!("{}", line.bright_cyan().bold());
+        std::thread::sleep(std::time::Duration::from_millis(20));
+    }
+    
+    println!("{}", "═".repeat(63).bright_cyan().bold());
+    
+    // Animated title with gradient effect
+    let title = format!("  🔥 LEGEND DORKER - Ultimate OSINT & Security Framework v{} 🔥", VERSION);
+    println!("{}", title.bright_yellow().bold());
+    std::thread::sleep(std::time::Duration::from_millis(100));
+    
+    println!("{}", "═".repeat(63).bright_cyan().bold());
+    println!();
+    
+    // Creator info with icons
+    println!("{}", "  👨‍💻 CREATOR INFORMATION".bright_magenta().bold());
+    println!("{}", "  ─".repeat(30).bright_black());
+    println!("{}", format!("  👤 Developer: {} (The Legend)", AUTHOR).bright_green().bold());
+    println!("{}", format!("  📧 Email: {}", EMAIL).bright_green());
+    println!("{}", format!("  📱 Instagram: @{}", INSTAGRAM).bright_green());
+    println!("{}", format!("  🌟 GitHub: @LEGEND_BL").bright_green());
+    
+    println!();
+    println!("{}", "  🎯 CAPABILITIES".bright_magenta().bold());
+    println!("{}", "  ─".repeat(30).bright_black());
+    println!("{}", "  ⚡ 100+ Google Dork Patterns | 14 Categories".bright_white());
+    println!("{}", "  🔓 OWASP Top 10 Vulnerability Scanner".bright_white());
+    println!("{}", "  🎭 15+ Social Media OSINT Platforms".bright_white());
+    println!("{}", "  💣 Automated Exploit & CVE Discovery".bright_white());
+    println!("{}", "  🔒 SSL/TLS Security Analysis".bright_white());
+    println!("{}", "  📊 Professional Multi-Format Reports".bright_white());
+    
+    println!();
+    println!("{}", "═".repeat(63).bright_cyan().bold());
+    println!("{}", "  ⚠️  FOR EDUCATIONAL AND AUTHORIZED TESTING ONLY ⚠️".bright_red().bold());
+    println!("{}", "  🛡️  100% VIRUS-FREE | COMPILED FROM SOURCE CODE".bright_green().bold());
+    println!("{}", "═".repeat(63).bright_cyan().bold());
+    println!();
 }
 
 fn clear_screen() {
