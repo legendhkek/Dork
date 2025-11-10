@@ -1,0 +1,15 @@
+# Swiss Army Suite - Requirements
+# Most functionality uses Python standard library
+# Additional optional dependencies for extended features:
+
+# For enhanced image processing (optional):
+# Pillow>=10.0.0
+
+# For enhanced HTTP requests (optional):
+# requests>=2.31.0
+
+# For advanced encryption (optional):
+# cryptography>=41.0.0
+
+# For building executable (optional):
+# pyinstaller>=6.0.0
