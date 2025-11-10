@@ -1,0 +1,13 @@
+/workspace/target/release/deps/cookie-2d699181d4e8076c.d: /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cookie-0.17.0/src/lib.rs /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cookie-0.17.0/src/builder.rs /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cookie-0.17.0/src/parse.rs /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cookie-0.17.0/src/jar.rs /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cookie-0.17.0/src/delta.rs /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cookie-0.17.0/src/draft.rs /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cookie-0.17.0/src/expiration.rs
+
+/workspace/target/release/deps/libcookie-2d699181d4e8076c.rlib: /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cookie-0.17.0/src/lib.rs /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cookie-0.17.0/src/builder.rs /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cookie-0.17.0/src/parse.rs /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cookie-0.17.0/src/jar.rs /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cookie-0.17.0/src/delta.rs /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cookie-0.17.0/src/draft.rs /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cookie-0.17.0/src/expiration.rs
+
+/workspace/target/release/deps/libcookie-2d699181d4e8076c.rmeta: /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cookie-0.17.0/src/lib.rs /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cookie-0.17.0/src/builder.rs /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cookie-0.17.0/src/parse.rs /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cookie-0.17.0/src/jar.rs /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cookie-0.17.0/src/delta.rs /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cookie-0.17.0/src/draft.rs /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cookie-0.17.0/src/expiration.rs
+
+/usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cookie-0.17.0/src/lib.rs:
+/usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cookie-0.17.0/src/builder.rs:
+/usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cookie-0.17.0/src/parse.rs:
+/usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cookie-0.17.0/src/jar.rs:
+/usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cookie-0.17.0/src/delta.rs:
+/usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cookie-0.17.0/src/draft.rs:
+/usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cookie-0.17.0/src/expiration.rs:

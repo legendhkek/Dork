@@ -1,0 +1,1 @@
+/workspace/target/release/swiss-army-suite: /workspace/src/config.rs /workspace/src/crypto_tools.rs /workspace/src/database.rs /workspace/src/dns_tools.rs /workspace/src/dork_checker.rs /workspace/src/main.rs /workspace/src/network_tools.rs /workspace/src/sql_scanner.rs /workspace/src/web_tools.rs
